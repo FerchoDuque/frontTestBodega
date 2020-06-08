@@ -53,8 +53,7 @@ export class AppComponent implements OnInit{
         this.successMessage = "Producto creado correctamente!"; 
         this.successStyle= true; 
         this.getProductos();
-      }, error => {
-        console.log(error);
+      }, error => { 
         this.errorMessage = "El Producto ya existe!"; this.errorStyle= true;
       });
     }
@@ -99,8 +98,7 @@ export class AppComponent implements OnInit{
       this.successMessage = "Producto "+producto.codigo+" actualizado"; 
       this.successStyle= true;  
       this.getProductos();
-    }, error => { 
-      console.log(error);
+    }, error => {  
       this.errorMessage = "Error en la petición"; this.errorStyle= true;
     });
   }
@@ -111,8 +109,7 @@ export class AppComponent implements OnInit{
       this.successMessage = "Producto "+codigo+" eliminado"; 
       this.successStyle= true;  
       this.getProductos();
-    }, error => {
-      console.log(error);
+    }, error => { 
       this.errorMessage = "Error en la petición"; this.errorStyle= true;
     });
   }

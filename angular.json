@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "frontTestBodega"
+    }
+  },
+  "defaultProject": "frontTestBodega",
+  "cli": {
+    "analytics": "5e09e536-4c2a-4fe1-a758-cbc1e388a237"
+  }
 }

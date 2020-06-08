@@ -290,3 +290,65 @@ i.delete {
 .cf:after {
     clear: both;
 }
+
+.boton_Entrada, .boton_Salida, .boton_Defectuoso, .boton_X {
+	background-color:#44c767;
+	border-radius:28px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:6px 12px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+} 
+
+.boton_Entrada:active, .boton_Salida:active, .boton_Defectuoso:active, .boton_X:active {
+	position:relative;
+	top:1px;
+}
+
+.boton_Entrada {
+	background-color:#44c767; 
+	border:1px solid #18ab29; 
+	color:#ffffff; 
+	text-shadow:0px 1px 0px #2f6627;
+}
+.boton_Entrada:hover {
+	background-color:#5cbf2a;
+} 
+
+.boton_Salida {
+	background-color:#8144c7; 
+	border:1px solid #1a18ab; 
+	color:#ffffff; 
+	text-shadow:0px 1px 0px #352766;
+}
+.boton_Salida:hover {
+	background-color:#7c2abf;
+} 
+
+.boton_Defectuoso {
+	background-color:#c7be44; 
+	border:1px solid #ab7d18; 
+	color:#000000; 
+	text-shadow:0px 1px 0px #666227;
+}
+.boton_Defectuoso:hover {
+	background-color:#bfbd2a;
+} 
+
+.boton_X {
+	background-color:#d30c0c; 
+	border:1px solid #ab2918; 
+	color:#ffd900; 
+	text-shadow:0px 1px 0px #662e27;
+}
+.boton_X:hover {
+	background-color:#bf2a2a;
+} 
+
+
+       

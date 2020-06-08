@@ -33,24 +33,28 @@
 
 		<div class="list">
 			<table border="0" cellspacing="0">
-				<tr class="table-header">
-					<td></td>
+				<tr class="table-header"> 
 					<td class="left">Código</td>
 					<td class="left">Nombre</td>
 					<td class="center">Estado</td>
 					<td class="center">Fecha Ingreso</td>
+					<td class="center">Acción</td>
 				</tr>
 				<tr *ngFor="let producto of productos">
-					<td><input ng-show="!item.checked" ng-checked="item.checked" ng-click="add(item, list)" type='checkbox' checklist-value="item.checked"></td>
 					<td ng-class="{selected: item.checked==true}">{{producto.codigo}}</td>
 					<td ng-class="{selected: item.checked==true}" class="left">{{producto.nombre}}</td>
 					<td ng-class="{selected: item.checked==true}" class="center">{{producto.estado}}</td>
 					<td ng-class="{selected: item.checked==true}" class="center">{{producto.fecha_ingreso | date}}</td>
-					<td><i class="icon-cross delete" ng-click="remove(item)"></i></td>
+					<td>
+						<a class="boton_Entrada" (click)="cambiarEstado(producto,'E')">E</a>
+						<a class="boton_Salida" (click)="cambiarEstado(producto,'S')">S</a>
+						<a class="boton_Defectuoso" (click)="cambiarEstado(producto,'D')">D</a> 
+						<a class="boton_X" (click)="borrarProducto(producto.codigo)">X</a> 
+					</td>
 				</tr>
-			</table>
+			</table> 
 			<div ng-hide="list.length" class="center">{{mensageBodega}}</div>
-			<button class="clear" ng-click="clearAll(list)">Eliminar todos los productos</button>
+			<button class="clear" (click)="deleteAllProductos()">Eliminar todos los productos</button>
 		</div>
 	</div>
 
@@ -80,11 +84,9 @@
 					<td class="left">{{producto.codigo}}</td>
 					<td class="center">{{producto.nombre}}</td>
 					<td class="center">{{producto.estado}}</td>
-					<td class="center">{{producto.fecha_ingreso | date}}</td>
-					<td><i class="icon-cross delete" ng-click="removeInventory(item)"></i></td>
+					<td class="center">{{producto.fecha_ingreso | date}}</td> 
 				</tr>
-			</table>
-			<button class="clear" ng-click="clearAll(inventory)">Limpiar Bodega</button>
+			</table> 
 		</div>
 	</div>
 </div>

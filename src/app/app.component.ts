@@ -54,6 +54,7 @@ export class AppComponent implements OnInit{
         this.successStyle= true; 
         this.getProductos();
       }, error => {
+        console.log(error);
         this.errorMessage = "El Producto ya existe!"; this.errorStyle= true;
       });
     }
@@ -61,28 +62,58 @@ export class AppComponent implements OnInit{
 
   getProductos() {  
     this.configService.getProductos().subscribe((response:any)=>{ 
-      this.productos = response; console.log(this.productos);  
+      this.productos = response; console.log(response);  
       if(response.length==0)
-        this.mensageBodega="Bodega vacía...";
-      else      
-        this.clear();
-    }, error => {
-      console.log(error);
+        this.mensageBodega="Bodega vacía..."; 
+    }, error => { 
       this.errorMessage = "Error en la petición"; this.errorStyle= true;
     });
   }
   
   getProductosByEstado() {  
     this.configService.getProductosByEstado(this.estadoLista).subscribe((response:any)=>{ 
-      this.productosEstado = response; console.log(this.productosEstado);  
+      this.productosEstado = response; 
       if(response.length==0)
         this.mensageBodega="Bodega vacía...";
       else      
         this.clear();
-    }, error => {
+    }, error => { 
+      this.errorMessage = "Error en la petición"; this.errorStyle= true;
+    });
+  }
+  
+  deleteAllProductos() {  
+    this.configService.deleteAllProductos().subscribe((response:any)=>{ 
+      this.mensageBodega="Bodega vacía...";
+      this.successMessage = "Bodega Limpia!"; 
+      this.successStyle= true;  
+      this.productos = [];
+    }, error => { 
+      this.errorMessage = "Error en la petición"; this.errorStyle= true;
+    });
+  }
+
+  cambiarEstado(producto:Producto, estado:any){ 
+    producto.estado = estado; 
+    this.configService.cambiarEstado(producto).subscribe((response:any)=>{  
+      this.successMessage = "Producto "+producto.codigo+" actualizado"; 
+      this.successStyle= true;  
+      this.getProductos();
+    }, error => { 
       console.log(error);
       this.errorMessage = "Error en la petición"; this.errorStyle= true;
     });
   }
 
+  borrarProducto(codigo:any){  
+    this.clear();
+    this.configService.deleteProducto(codigo).subscribe((response:any)=>{  
+      this.successMessage = "Producto "+codigo+" eliminado"; 
+      this.successStyle= true;  
+      this.getProductos();
+    }, error => {
+      console.log(error);
+      this.errorMessage = "Error en la petición"; this.errorStyle= true;
+    });
+  }
 }

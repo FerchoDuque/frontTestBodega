@@ -46,7 +46,7 @@ export class AppComponent implements OnInit{
 
   addProducto() {
     this.clear();
-    if(!this.producto.codigo && !this.producto.nombre && !this.producto.estado){
+    if(!this.producto.codigo || !this.producto.nombre || !this.producto.estado){
       this.errorMessage = "Ingresa todos los campos!"; this.errorStyle= true;
     }else{
       this.configService.addProducto(this.producto).subscribe((response:any)=>{ 
@@ -61,7 +61,7 @@ export class AppComponent implements OnInit{
 
   getProductos() {  
     this.configService.getProductos().subscribe((response:any)=>{ 
-      this.productos = response; console.log(response);  
+      this.productos = response; 
       if(response.length==0)
         this.mensageBodega="Bodega vacía..."; 
     }, error => { 

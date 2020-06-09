@@ -4,9 +4,9 @@
   @include box-sizing(border-box);
 }
 
-$red: #fb887c;
-$green: #AFC7B9;
-$navy: #34495e;
+$red: #d82410;
+$green: rgb(0, 0, 0);
+$navy: #072544;
 
 @import url("https://www.markmurray.co/codepen/customstyle.css"), url("https://fonts.googleapis.com/css?family=Lato:300,400,700");
 
@@ -29,7 +29,7 @@ html, body {
 
 .box {
   width: 49%;
-  background: #f3f3f3;
+  background: #ffffff;
   margin: 0 auto 2em auto;
   overflow: auto;
   padding: 1em;
@@ -217,7 +217,6 @@ button {
 }
 
 .total {
-
   background: $red;
   color: white;
   font-weight: bolder;
@@ -299,8 +298,8 @@ i.delete {
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
-	font-size:17px;
-	padding:6px 12px;
+	font-size:12px;
+	padding:6px 10px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #2f6627;
 } 
